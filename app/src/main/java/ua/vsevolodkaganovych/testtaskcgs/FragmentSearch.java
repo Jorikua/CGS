@@ -52,9 +52,9 @@ public class FragmentSearch extends ListFragment {
             }
         });
 
-
         return rootView;
     }
+
 
     public class Task extends AsyncTask<Void, Void, ArrayList<Item>> {
 

@@ -2,6 +2,8 @@ package ua.vsevolodkaganovych.testtaskcgs;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,15 @@ public class CustomListAdapter extends ArrayAdapter<Item> {
                 ContentValues cv = new ContentValues();
                 cv.put(ImageColumns.IMAGE, item.image);
                 getContext().getContentResolver().insert(ImageColumns.CONTENT_URI, cv);
+            }
+        });
+
+        viewHolder.mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FullScreenImage.class);
+                intent.setData(Uri.parse(item.image));
+                getContext().startActivity(intent);
             }
         });
         return convertView;

@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".FullScreenImage"/>
+
         <provider
             android:name="ua.vsevolodkaganovych.testtaskcgs.provider.ImageProvider"
             android:authorities="ua.vsevolodkaganovych.testtaskcgs.provider"
