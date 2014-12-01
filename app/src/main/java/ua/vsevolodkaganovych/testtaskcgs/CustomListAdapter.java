@@ -53,9 +53,11 @@ public class CustomListAdapter extends ArrayAdapter<Item> {
         viewHolder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ContentValues cv = new ContentValues();
-                cv.put(ImageColumns.IMAGE, item.image);
-                getContext().getContentResolver().insert(ImageColumns.CONTENT_URI, cv);
+                if (buttonView.isChecked()) {
+                    ContentValues cv = new ContentValues();
+                    cv.put(ImageColumns.IMAGE, item.image);
+                    getContext().getContentResolver().insert(ImageColumns.CONTENT_URI, cv);
+                }
             }
         });
 
